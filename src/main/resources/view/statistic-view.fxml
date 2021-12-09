@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.victory.client.controller.StatisticController">
+   <left>
+      <VBox alignment="CENTER" prefHeight="331.0" prefWidth="165.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonExport" mnemonicParsing="false" onAction="#buttonExportClick" prefHeight="63.0" prefWidth="165.0" text="Экспорт" />
+            <Button fx:id="buttonImport" mnemonicParsing="false" onAction="#buttonImportClick" prefHeight="65.0" prefWidth="165.0" text="Импорт" />
+            <Button fx:id="buttonTrip" mnemonicParsing="false" onAction="#buttonTripClick" prefHeight="61.0" prefWidth="165.0" text="Рейсы" />
+            <Button fx:id="buttonAddress" mnemonicParsing="false" onAction="#buttonAddressClick" prefHeight="60.0" prefWidth="208.0" text="Адреса рейсов" />
+            <Button fx:id="buttonTransport" mnemonicParsing="false" onAction="#buttonTransportClick" prefHeight="64.0" prefWidth="182.0" text="Транспорт" />
+            <Button fx:id="buttonDriver" mnemonicParsing="false" onAction="#buttonDriverClick" prefHeight="63.0" prefWidth="165.0" text="Водители" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="buttonProduct" mnemonicParsing="false" onAction="#buttonProductClick" prefHeight="59.0" prefWidth="165.0" text="Продукция" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

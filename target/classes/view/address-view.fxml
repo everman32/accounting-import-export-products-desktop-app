@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.victory.client.controller.AddressController">
+   <top>
+      <TabPane prefHeight="492.0" prefWidth="837.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab onSelectionChanged="#tabReadSelect" text="Чтение">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="buttonRefresh" mnemonicParsing="false" onAction="#buttonRefreshClick" prefHeight="31.0" prefWidth="110.0" text="Обновить" />
+                              <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#buttonDeleteClick" prefHeight="31.0" prefWidth="132.0" text="Удалить выделенное" />
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="289.0" prefWidth="576.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="361.0" prefWidth="828.0">
+                                 <children>
+                                    <TableView fx:id="table" prefHeight="361.0" prefWidth="828.0">
+                                       <columns>
+                                          <TableColumn fx:id="idColumn" prefWidth="60.0" text="ИД" />
+                                          <TableColumn fx:id="countryColumn" prefWidth="239.0" text="Страна" />
+                                          <TableColumn fx:id="cityColumn" prefWidth="256.0" text="Город" />
+                                          <TableColumn fx:id="postalCodeColumn" prefWidth="266.0" text="Почтовый индекс" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab onSelectionChanged="#tabCreateSelect" text="Создание">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="410.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="371.0" prefWidth="284.0">
+                                 <children>
+                                    <TextField fx:id="countryText" prefHeight="25.0" prefWidth="278.0" promptText="Страна" />
+                                    <TextField fx:id="cityText" promptText="Город" />
+                                    <TextField fx:id="postalCodeText" promptText="Почтовый индекс" />
+                                    <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#buttonCreateClick" prefHeight="37.0" prefWidth="182.0" text="Создать" />
+                                    <Button fx:id="buttonClearForm" mnemonicParsing="false" onAction="#buttonClearFormClick" prefHeight="25.0" prefWidth="181.0" text="Очистить содержимое" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab onSelectionChanged="#tabUpdateSelect" text="Обновление">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="46.0" text="Запись" textFill="#c6b9b9" />
+                              <ComboBox fx:id="recordComboBox" onShowing="#recordComboBoxChange" prefHeight="25.0" prefWidth="341.0" />
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="350.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TabPane prefHeight="361.0" prefWidth="897.0" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab fx:id="tabCountry" onSelectionChanged="#tabCountrySelect" text="Страна">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="332.0" prefWidth="285.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="countryUpdateText" prefHeight="25.0" prefWidth="232.0" promptText="Страна" />
+                                                      <Button fx:id="buttonCountryUpdate" mnemonicParsing="false" onAction="#buttonCountryUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="tabCity" onSelectionChanged="#tabCitySelect" text="Город">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="cityUpdateText" promptText="Город" />
+                                                      <Button fx:id="buttonCityUpdate" mnemonicParsing="false" onAction="#buttonCityUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="tabPostalCode" onSelectionChanged="#tabPostalCodeSelect" text="Почтовый индекс">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="postalCodeUpdateText" promptText="Почтовый индекс" />
+                                                      <Button fx:id="buttonPostalCodeUpdate" mnemonicParsing="false" onAction="#buttonPostalCodeUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </top>
+</BorderPane>

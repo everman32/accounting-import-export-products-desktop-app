@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.victory.client.controller.DriverController">
+   <top>
+      <TabPane prefHeight="436.0" prefWidth="810.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab onSelectionChanged="#tabReadSelect" text="Чтение">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="849.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="buttonRefresh" mnemonicParsing="false" onAction="#buttonRefreshClick" prefHeight="31.0" prefWidth="110.0" text="Обновить" />
+                              <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#buttonDeleteClick" prefHeight="31.0" prefWidth="132.0" text="Удалить выделенное" />
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="170.0" prefWidth="849.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="361.0" prefWidth="828.0">
+                                 <children>
+                                    <TableView fx:id="table" prefHeight="361.0" prefWidth="248.0">
+                                       <columns>
+                                          <TableColumn fx:id="idColumn" prefWidth="60.0" text="ИД" />
+                                          <TableColumn fx:id="firstNameColumn" prefWidth="141.0" text="Имя" />
+                                          <TableColumn fx:id="patronymicColumn" prefWidth="172.0" text="Отчество" />
+                                          <TableColumn fx:id="lastNameColumn" prefWidth="176.0" text="Фамилия" />
+                                          <TableColumn fx:id="phoneNumberColumn" prefWidth="139.0" text="Номер телефона" />
+                                          <TableColumn fx:id="experienceColumn" prefWidth="132.0" text="Стаж вождения (лет)" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </center></BorderPane>
+               </content>
+            </Tab>
+            <Tab onSelectionChanged="#tabCreateSelect" text="Создание">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="410.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="371.0" prefWidth="284.0">
+                                 <children>
+                                    <TextField fx:id="firstNameText" prefHeight="25.0" prefWidth="278.0" promptText="Имя" />
+                                    <TextField fx:id="patronymicText" promptText="Отчество" />
+                                    <TextField fx:id="lastNameText" promptText="Фамилия" />
+                                    <TextField fx:id="phoneNumberText" promptText="Номер телефона" />
+                                    <TextField fx:id="experienceText" prefHeight="25.0" prefWidth="225.0" promptText="Стаж вождения (лет)" />
+                                    <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#buttonCreateClick" prefHeight="37.0" prefWidth="182.0" text="Создать" />
+                                    <Button fx:id="buttonClearForm" mnemonicParsing="false" onAction="#buttonClearFormClick" prefHeight="25.0" prefWidth="181.0" text="Очистить содержимое" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab onSelectionChanged="#tabUpdateSelect" text="Обновление">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="46.0" text="Запись" textFill="#c6b9b9" />
+                              <ComboBox fx:id="recordComboBox" onShowing="#recordComboBoxChange" prefHeight="25.0" prefWidth="341.0" />
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="350.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TabPane prefHeight="361.0" prefWidth="886.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab fx:id="tabFirstName" onSelectionChanged="#tabFirstNameSelect" text="Имя">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="firstNameUpdateText" promptText="Имя" />
+                                                      <Button fx:id="buttonFirstNameUpdate" mnemonicParsing="false" onAction="#buttonFirstNameUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content></Tab>
+                                    <Tab fx:id="tabPatronymic" onSelectionChanged="#tabPatronymicSelect" text="Отчество">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="patronymicUpdateText" promptText="Отчество" />
+                                                      <Button fx:id="buttonPatronymicUpdate" mnemonicParsing="false" onAction="#buttonPatronymicUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content></Tab>
+                                    <Tab fx:id="tabLastName" onSelectionChanged="#tabLastNameSelect" text="Фамилия">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="lastNameUpdateText" promptText="Фамилия" />
+                                                      <Button fx:id="buttonLastNameUpdate" mnemonicParsing="false" onAction="#buttonLastNameUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content></Tab>
+                                    <Tab fx:id="tabPhoneNumber" onSelectionChanged="#tabPhoneNumberSelect" text="Номер телефона">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="phoneNumberUpdateText" promptText="Номер телефона" />
+                                                      <Button fx:id="buttonPhoneNumberUpdate" mnemonicParsing="false" onAction="#buttonPhoneNumberUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content></Tab>
+                                    <Tab fx:id="tabExperience" onSelectionChanged="#tabExperienceSelect" text="Стаж вождения">
+                                       <content>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="296.0" prefWidth="173.0">
+                                                   <children>
+                                                      <TextField fx:id="experienceUpdateText" promptText="Стаж вождения (лет)" />
+                                                      <Button fx:id="buttonExperienceUpdate" mnemonicParsing="false" onAction="#buttonExperienceUpdateClick" prefHeight="30.0" prefWidth="77.0" text="Обновить" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content></Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </HBox>
+                     </center></BorderPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabExperienceGraph" onSelectionChanged="#tabExperienceGraphSelect" text="График стажей водителей">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="322.0" prefWidth="849.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="324.0" prefWidth="520.0">
+                                 <children>
+                                    <LineChart fx:id="experienceGraph" animated="false" legendVisible="false">
+                                      <xAxis>
+                                        <CategoryAxis label="ФИО" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis label="Опыт, лет" side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </top>
+</BorderPane>
